@@ -1,22 +1,29 @@
 // ****************************************************************
+// set up GET API
 // Controller functions to get the requested data from the models, 
 // create an HTML page displaying the data, and return it to the 
 // user to view in the browser.
 // ****************************************************************
 import path from 'path';
 const __dirname = path.resolve();
-// show html page
+
 export const home = (req, res) => {
-    //show this file when the "/" is requested
-    res.sendFile(__dirname+"/source/pages/home.html");
+    var welcome_message = `Hello World! this is a node JS demo app`;
+    res.send(welcome_message);
 }
-// get and show today's date
+// show html page
+export const homePage = (req, res) => {
+    //show this file when the "/" is requested
+    res.sendFile(__dirname+"/pages/home.html");
+}
+// get today's date
 export const getTodayDate = (req, res) => {
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
     var day = dateObj.getUTCDate();
     var year = dateObj.getUTCFullYear();
     var newdate = day+ "/" + month + "/" + year;
+
     res.json({
         today: newdate
     });
@@ -38,33 +45,24 @@ export const getMonthsName = (req, res) => {
         12: 'December'
     });
 }
-// get list of people -- This can come from a database and what's defined in model.js
-// but for the purspuse of this demo, I'm going o juts type a couple of names
-export const getPeople = (req, res) => {
+// get list of ITOT Developers
+export const getItotDevs = (req, res) => {
     res.json([
         {
-            FirstName: 'Yann',
-            LastName: 'Mulonda',
-            title: 'Software Engineer',
-            LinkedIn: 'https://www.linkedin.com/in/yannmjl/'
+            name: 'Yann Mulonda',
+            title: 'Software Engineer'
         },
         {
-            FirstName: 'Bernard',
-            LastName: 'Ng',
-            title: 'Software Developer',
-            LinkedIn: 'https://www.linkedin.com/in/bernard-ngandu/'
+            name: 'Bernard Ng',
+            title: 'Software Developer'
         },
         {
-            FirstName: 'Clerc',
-            LastName: 'Kapema',
-            title: 'Web Developer',
-            LinkedIn: 'https://www.linkedin.com/in/clerc-ngonga-b1253b174/'
+            name: 'Clerc Kapema',
+            title: 'Web Developer'
         },
         {
-            FirstName: 'Gloire',
-            LastName: 'Kafwalubi',
-            title: 'Web Developer',
-            LinkedIn: 'https://www.linkedin.com/in/gloire-kafwalubi-3152871a0/'
+            name: 'Gloire Kafwalubi',
+            title: 'Web Developer'
         }
     ]);
 }
