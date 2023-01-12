@@ -1,7 +1,6 @@
 // import Express and routes
-import express from 'express';
-import routes from './source/routes/route.js';
-
+import express from "express";
+import routes from "routes";
 // vary these constants according to where you are running (GCS, VMs, K8S) and how many VMs you have, if that's the lesson)
 // to do: this should be a command-line parameter that lets the app know how it is running
 //const arrNodes = [ "localhost" ]                                    // for testing on GCS
