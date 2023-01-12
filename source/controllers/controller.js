@@ -7,14 +7,10 @@
 import path from 'path';
 const __dirname = path.resolve();
 
-export const home = (req, res) => {
-    var welcome_message = `Hello World! this is a node JS demo app`;
-    res.send(welcome_message);
-}
 // show html page
-export const homePage = (req, res) => {
+export const home = (req, res) => {
     //show this file when the "/" is requested
-    res.sendFile(__dirname+"/pages/home.html");
+    res.sendFile(__dirname+"/source/pages/home.html");
 }
 // get today's date
 export const getTodayDate = (req, res) => {
@@ -45,24 +41,33 @@ export const getMonthsName = (req, res) => {
         12: 'December'
     });
 }
-// get list of ITOT Developers
-export const getItotDevs = (req, res) => {
+// get list of people -- This can come from a database and what's defined in model.js
+// but for the purspuse of this demo, I'm going o juts type a couple of names
+export const getPeople = (req, res) => {
     res.json([
         {
-            name: 'Yann Mulonda',
-            title: 'Software Engineer'
+            FirstName: 'Yann',
+            LastName: 'Mulonda',
+            title: 'Software Engineer',
+            LinkedIn: 'https://www.linkedin.com/in/yannmjl/'
         },
         {
-            name: 'Bernard Ng',
-            title: 'Software Developer'
+            FirstName: 'Bernard',
+            LastName: 'Ng',
+            title: 'Software Developer',
+            LinkedIn: 'https://www.linkedin.com/in/bernard-ngandu/'
         },
         {
-            name: 'Clerc Kapema',
-            title: 'Web Developer'
+            FirstName: 'Clerc',
+            LastName: 'Kapema',
+            title: 'Web Developer',
+            LinkedIn: 'https://www.linkedin.com/in/clerc-ngonga-b1253b174/'
         },
         {
-            name: 'Gloire Kafwalubi',
-            title: 'Web Developer'
+            FirstName: 'Gloire',
+            LastName: 'Kafwalubi',
+            title: 'Web Developer',
+            LinkedIn: 'https://www.linkedin.com/in/gloire-kafwalubi-3152871a0/'
         }
     ]);
 }
